@@ -3,7 +3,7 @@ export const site = {
   logoSuffix: '.in',
   author: {
     name: 'Devansh Modi',
-    bio: 'Computer Science student. Building scalable web applications and backend systems. ',
+    bio: 'Full-stack developer — TypeScript, React, Node.js, Next.js, Postgres, Golang, Docker, AWS (EC2, S3).',
   },
   links: {
     github: 'https://github.com/DevanshModi09',
