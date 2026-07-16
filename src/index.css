@@ -128,6 +128,19 @@ a:hover {
   color: var(--text);
 }
 
+.sidebar-nav-elsewhere {
+  margin-top: 32px;
+}
+
+.sidebar-nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
 .theme-toggle {
   background: none;
   border: none;
@@ -562,6 +575,14 @@ a:hover {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2px 16px;
+  }
+
+  .sidebar-nav-elsewhere {
+    margin-top: 6px;
+  }
+
+  .sidebar-nav-label {
+    display: none;
   }
 
   .content-inner {
