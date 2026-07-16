@@ -10,9 +10,9 @@ After building a few Express APIs, I noticed I kept writing the same error handl
 
 Every controller had its own `res.status(...).json(...)` call. Some returned `{ msg }`, others returned `{ error }`, and every route handled errors a little differently.
 
-I wanted my controllers to focus on business logic, not building error responses.
+I wanted controllers to only worry about business logic, so I moved all the error handling into one place.
 
-So I moved all the error handling into one place.
+## The overall flow looks like this.
 
 Now every project starts with:
 
@@ -27,12 +27,12 @@ That's the entire setup.
 A typical controller usually looks something like this.
 
 ```js
-app.get("/user/:id", async (req, res) => {
+app.get('/user/:id', async (req, res) => {
   const user = await findUser(req.params.id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      msg: 'User not found',
     });
   }
 
@@ -86,12 +86,12 @@ export class BadRequestError extends CustomAPIError {
 
 I usually create these four errors.
 
-| Class | Status | When to Use |
-| ------ | ------ | ------------------------------ |
-| `BadRequestError` | 400 | The request is invalid |
-| `UnauthenticatedError` | 401 | The user isn't logged in |
-| `UnauthorizedError` | 403 | The user doesn't have permission |
-| `NotFoundError` | 404 | The requested resource doesn't exist |
+| Class                  | Status | When to Use                          |
+| ---------------------- | ------ | ------------------------------------ |
+| `BadRequestError`      | 400    | The request is invalid               |
+| `UnauthenticatedError` | 401    | The user isn't logged in             |
+| `UnauthorizedError`    | 403    | The user doesn't have permission     |
+| `NotFoundError`        | 404    | The requested resource doesn't exist |
 
 Since every class extends `CustomAPIError`, the middleware can handle all of them in exactly the same way.
 
@@ -103,13 +103,13 @@ Every error eventually reaches this middleware.
 
 ```js
 export const errorHandlerMiddleware = (err, req, res, next) => {
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     console.error(err);
   }
 
   let customError = {
     statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-    msg: "Something went wrong. Try again later.",
+    msg: 'Something went wrong. Try again later.',
   };
 
   if (err instanceof CustomAPIError) {
@@ -123,7 +123,7 @@ export const errorHandlerMiddleware = (err, req, res, next) => {
 };
 ```
 
-The logic is simple.
+The logic is kinda simple.
 
 If the error is one of our custom errors, return its status code and message.
 
@@ -138,7 +138,7 @@ Instead of returning responses everywhere:
 ```js
 if (!user) {
   return res.status(404).json({
-    msg: "User not found",
+    msg: 'User not found',
   });
 }
 ```
@@ -147,7 +147,7 @@ just throw an error.
 
 ```js
 if (!user) {
-  throw new NotFoundError("User not found");
+  throw new NotFoundError('User not found');
 }
 ```
 
@@ -162,8 +162,8 @@ One small difference between Express 4 and Express 5 is how async errors are han
 In **Express 4**, throwing an error inside an async route doesn't automatically call the error middleware.
 
 ```js
-app.get("/", async (req, res) => {
-  throw new Error("Something went wrong");
+app.get('/', async (req, res) => {
+  throw new Error('Something went wrong');
 });
 ```
 
@@ -178,12 +178,20 @@ In **Express 5**, async errors are forwarded automatically.
 The same code works without any wrapper.
 
 ```js
-app.get("/", async (req, res) => {
-  throw new Error("Something went wrong");
+app.get('/', async (req, res) => {
+  throw new Error('Something went wrong');
 });
 ```
 
 It's a small change, but it makes writing async routes much cleaner.
+
+## Use the Template
+
+If you don't feel like setting all of this up from scratch, I've already put everything into a template.
+
+It's the same structure I use whenever I start a new Express backend, so feel free to use it as a starting point, copy parts of it, or tweak it however you like.
+
+**GitHub Repository:** https://github.com/DevanshModi09/ErrorHandlingTemplate-Js
 
 ## Final Thoughts
 
