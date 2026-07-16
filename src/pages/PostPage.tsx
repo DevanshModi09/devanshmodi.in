@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { site } from '../config';
 import { getPost } from '../data/posts';
 import { formatDate } from '../utils/date';
+import Tag from '../components/Tag';
 import NotFound from './NotFound';
 
 export default function PostPage() {
@@ -31,8 +32,12 @@ export default function PostPage() {
         <h1>{post.title}</h1>
         <p className="article-subtitle">{post.subtitle}</p>
         <p className="article-meta">
-          <time dateTime={post.date}>{formatDate(post.date)}</time> ·{' '}
-          {post.readTime}
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <span className="article-tags">
+            {post.tags.map((tag) => (
+              <Tag key={tag} name={tag} />
+            ))}
+          </span>
         </p>
       </header>
 
@@ -62,6 +67,17 @@ export default function PostPage() {
           {post.body}
         </ReactMarkdown>
       </div>
+
+      {post.links.length > 0 && (
+        <section className="article-related">
+          <span className="article-related-label">Related links</span>
+          {post.links.map((link) => (
+            <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
+              {link.label} ↗
+            </a>
+          ))}
+        </section>
+      )}
 
       <footer className="article-footer">
         <Link to="/" className="back-link">

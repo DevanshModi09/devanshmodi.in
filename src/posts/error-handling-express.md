@@ -3,7 +3,8 @@ title: A Reusable Error Handling Pattern for Express
 subtitle: A simple and robust template for handling errors in any JavaScript backend project.
 excerpt: I got tired of writing the same error handling code in every Express project, so I moved everything into one reusable setup.
 date: 2026-07-16
-tags: node, express, javascript
+tags: node, express, javascript, typescript
+links: Template repo (JavaScript) | https://github.com/DevanshModi09/ErrorHandlingTemplate-Js, Template repo (TypeScript) | https://github.com/DevanshModi09/ErrorHandlingTemplate-Ts, Express error handling guide | https://expressjs.com/en/guide/error-handling.html, Node.js Error docs | https://nodejs.org/api/errors.html
 ---
 
 After building a few Express APIs, I noticed I kept writing the same error handling code again and again.
@@ -11,6 +12,8 @@ After building a few Express APIs, I noticed I kept writing the same error handl
 Every controller had its own `res.status(...).json(...)` call. Some returned `{ msg }`, others returned `{ error }`, and every route handled errors a little differently.
 
 I wanted controllers to only worry about business logic, so I moved all the error handling into one place.
+
+The full template is on GitHub in two flavors: [JavaScript](https://github.com/DevanshModi09/ErrorHandlingTemplate-Js) and [TypeScript](https://github.com/DevanshModi09/ErrorHandlingTemplate-Ts).
 
 ## The overall flow looks like this.
 

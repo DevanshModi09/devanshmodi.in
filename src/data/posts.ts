@@ -22,16 +22,19 @@ function parsePost(path: string, raw: string): Post {
     }
   }
 
-  const words = body.trim().split(/\s+/).length;
-
   return {
     slug,
     title: meta.title ?? slug,
     subtitle: meta.subtitle ?? '',
     excerpt: meta.excerpt ?? '',
     date: meta.date ?? '',
-    readTime: `${Math.max(1, Math.round(words / 200))} min read`,
     tags: meta.tags ? meta.tags.split(',').map((tag) => tag.trim()) : [],
+    links: meta.links
+      ? meta.links.split(',').map((entry) => {
+          const [label, url] = entry.split('|').map((part) => part.trim());
+          return { label, url: url ?? label };
+        })
+      : [],
     body,
   };
 }

@@ -4,7 +4,7 @@ export interface Post {
   subtitle: string;
   excerpt: string;
   date: string;
-  readTime: string;
   tags: string[];
+  links: { label: string; url: string }[];
   body: string;
 }
