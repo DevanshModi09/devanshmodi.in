@@ -31,6 +31,10 @@ export default function Sidebar() {
             </NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/projects">Projects</NavLink>
+          </nav>
+
+          <nav className="sidebar-nav sidebar-nav-elsewhere">
+            <span className="sidebar-nav-label">Elsewhere</span>
             <a href={site.links.github} target="_blank" rel="noreferrer">
               GitHub ↗
             </a>
