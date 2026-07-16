@@ -1,6 +1,6 @@
 # devanshmodi.in
 
-Personal site — writing, about, and projects — built with React + TypeScript + Vite. Sidebar layout, dark/light mode, no CMS. The original static site it grew from is preserved in `legacy/`.
+Personal site — writing, about, and projects — built with React + TypeScript + Vite. Sidebar layout, dark/light mode, no CMS.
 
 ## Commands
 
@@ -37,7 +37,7 @@ date: 2026-07-20
 tags: react, typescript
 ---
 
-Write normal markdown here. **Bold**, *italics*, `code`,
+Write normal markdown here. **Bold**, _italics_, `code`,
 [links](https://example.com), lists, tables, code blocks — all supported.
 
 ## Headings make sections
