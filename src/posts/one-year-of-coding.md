@@ -8,7 +8,7 @@ tags: personal, learning
 
 ## How It Started
 
-There were still about three months left before college orientation. I had a lot of free time and, like most people my age, spent most of it gaming (I was Ascendant in Valorant). It was fun, but after a while I wanted to do something more productive.
+There were still about three months left before college orientation. I had a lot of free time and, like most people my age, spent most of it gaming (Mostly Valorant). It was fun, but after a while I wanted to do something more productive.
 
 Since I'd already decided to pursue a B.Tech in Computer Science, I bought my first Udemy course—a C programming course by Vlad Budnitski. It turned out to be one of the best decisions I've made.
 
