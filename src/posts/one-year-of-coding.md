@@ -1,5 +1,5 @@
 ---
-title: One Year of Coding
+title: One Year Into Programming
 subtitle: Some thoughts after my first year of writing code.
 excerpt: A look back at what the last year of learning to code has actually been like.
 date: 2026-07-23
