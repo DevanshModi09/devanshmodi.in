@@ -2,19 +2,17 @@
 title: One Year of Coding
 subtitle: Some thoughts after my first year of writing code.
 excerpt: A look back at what the last year of learning to code has actually been like.
-date: 2026-07-22
+date: 2026-07-23
 tags: personal, learning
 ---
 
 ## How It Started
 
-There were still around three months left before my college orientation. For the first time in a while, I had a lot of free time and no real responsibilities. Like most people my age, I spent most of my days playing video games (i was at ascendent in valorant). In fact, I had finished nearly 30 games in just four months. It was fun, but after a while it started to feel repetitive, and I knew I should probably do something more productive.
+There were still about three months left before college orientation. I had a lot of free time and, like most people my age, spent most of it gaming (I was Ascendant in Valorant). It was fun, but after a while I wanted to do something more productive.
 
-Since I had already decided to pursue a B.Tech in Computer Science, I thought, why not start learning to code before college? So, around May 12, I bought my first Udemy course—a C programming course by Vlad Budnitski. Looking back, it was one of the best decisions I've ever made.
+Since I'd already decided to pursue a B.Tech in Computer Science, I bought my first Udemy course—a C programming course by Vlad Budnitski. Looking back, it was one of the best decisions I've made.
 
-It took me about a month to finish the course. I was pretty slow because I was still spending a lot of time gaming, but as I kept learning, something clicked. For the first time, I realized that if I consistently put in a few extra hours every day, I could build skills that would actually be valuable in the future. That realization completely changed the way I looked at learning.
-
-A month later, on June 20—my 19th birthday—I bought the Udemy yearly subscription and started learning JavaScript. At that point, I had decided that I wanted to become a full-stack developer. I had no roadmap, no big goals, and no idea where the journey would take me. I just knew I wanted to keep learning. Looking back now, that was the moment my journey really began.
+About a month later, something clicked. I realized that if I consistently put in a few extra hours every day, I could build skills that would actually be valuable. On my 19th birthday (June 20), I bought the Udemy yearly subscription, started learning JavaScript, and decided I wanted to become a full-stack developer. I had no roadmap or big goals—I just wanted to keep learning. Looking back, that's where the journey really began.
 
 ## The Early Struggles
 
@@ -26,10 +24,24 @@ Even then, I finished my JavaScript course and moved on to Node.js. I still reme
 
 ## What Clicked
 
-## What I'd Do Differently
+Around October, during Diwali, I'd saved up some money and bought Harkirat Singh's cohort. I already knew the basics by then, but the cohort filled in the gaps in backend and React. Took me around five months to properly get through everything.
 
-## What I'm Proud Of
+By March, I was comfortable with both backend and frontend, and had also picked up networking fundamentals, Git/GitHub, and some other basics along the way. I could finally build a full MERN stack app from scratch — that was probably the biggest milestone of my first year, first time I felt like I could turn an idea into something real, not just follow along with a tutorial.
+
+Over the next couple months I kept building on that — learned SQL, Next.js, cloud basics, auth, testing in Node, TypeScript, Docker, AWS, even messed around with Turborepo and monorepos. More than the tools though, I started actually understanding why certain patterns exist instead of just making things work.
+
+By May, practicals started, so I had less time to learn new stuff and just focused on building. Made a bunch of full-stack projects in that time, favorite being RatRacer — a real-time multiplayer typing game using Socket.IO where you race your friends.
+
+Then exams hit and ran till June, wrapping up my first year. Looking back at everything I'd learned, I realized there was still a big gap between building apps and actually understanding how large-scale systems work.
 
 ## What's Next
 
+Once summer break started, I shifted focus. Instead of picking up more frameworks, I went into Go, DevOps and finally started DSA properly — something I'd kept pushing off all year. Right now, my goal is narrow: get good at building backend systems in Go, understand how things like queues and containers actually work, and slowly move towards contributing to open source.
+
 ## Final Thoughts
+
+Looking back, it's strange this all started with just a C course bought out of boredom before college. A year later, I've gone from not knowing what a variable was to building full-stack apps and actually enjoying the process of learning hard things.
+
+If there's one thing I've learned, it's that consistency beats motivation. The months I made real progress weren't the ones I felt inspired — they were the ones I just showed up anyway.
+
+Still a long way to go, but if this year taught me anything, it's that showing up daily is enough. Here's to year two.
