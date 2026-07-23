@@ -7,7 +7,7 @@ import { renderOgImage } from './og-image.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const distDir = join(root, 'dist');
 const postsDir = join(root, 'src/posts');
-const baseUrl = 'https://devanshmodi.in';
+const baseUrl = 'https://www.devanshmodi.in';
 const defaultImage = `${baseUrl}/favicon-512.png`;
 const siteName = 'Devansh Modi';
 
