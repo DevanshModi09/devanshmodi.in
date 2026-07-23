@@ -8,7 +8,7 @@ tags: personal, learning
 
 ## How It Started
 
-There were still about three months left before college orientation. I had a lot of free time and, like most people my age, spent most of it gaming (Mostly Valorant). It was fun, but after a while I wanted to do something more productive.
+There were still about three months left before college orientation. I had a lot of free time and, like most people my age, I spent most of it gaming (Mostly Valorant). It was fun, but after a while I wanted to do something more productive.
 
 Since I'd already decided to pursue a B.Tech in Computer Science, I bought my first Udemy course—a C programming course by Vlad Budnitski. It turned out to be one of the best decisions I've made.
 
@@ -28,7 +28,7 @@ Around October, during Diwali, I'd saved up some money and bought Harkirat Singh
 
 By March, I was comfortable with both backend and frontend, and had also picked up networking fundamentals, Git/GitHub, and some other basics along the way. I could finally build a full MERN stack app from scratch — that was probably the biggest milestone of my first year, the first time I felt like I could turn an idea into something real, not just follow along with a tutorial.
 
-Over the next couple months I kept building on that — learned SQL, Next.js, cloud basics, auth, testing in Node, TypeScript, Docker, AWS, even messed around with Turborepo and monorepos. More than the tools though, I started actually understanding why certain patterns exist instead of just making things work.
+Over the next couple months I kept building on that — learned SQL, Next.js, cloud basics, auth, testing in Node, TypeScript, Docker, AWS . More than the tools though.
 
 By May, practicals started, so I had less time to learn new stuff and just focused on building. Made a bunch of full-stack projects in that time, favorite being Ratracer — a real-time multiplayer typing game using Socket.IO where you race your friends.
 
