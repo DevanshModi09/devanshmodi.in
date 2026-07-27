@@ -3,7 +3,7 @@ title: Concurrency vs Parallelism: What Learning Go Taught Me
 subtitle: A simple, beginner-friendly (not really) breakdown of two concepts I mixed up for way too long — with easy real-world examples along the way.
 excerpt: I used to think concurrency and parallelism meant the same thing. Learning Go — and writing goroutines myself — finally showed me why they're not.
 date: 2026-07-27
-tags: go, golang, javascript, nodejs, concurrency, parallelism, learning
+tags: go, javascript, nodejs, concurrency, parallelism
 ---
 # My Biggest Misconception About Concurrency
 
