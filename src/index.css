@@ -625,6 +625,239 @@ a:hover {
   border-bottom: 1px solid var(--border);
 }
 
+/* Admin */
+.content-inner:has(.admin-editor) {
+  max-width: 720px;
+}
+
+.admin-loading {
+  color: var(--text-muted);
+}
+
+.admin-login h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.admin-login input {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 9px 12px;
+}
+
+.admin-login input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.admin-login button {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--rust);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.admin-error {
+  font-size: 0.85rem;
+  color: var(--rust);
+}
+
+.admin-success {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.admin-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admin-editor-header h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.admin-editor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-editor-actions button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+.admin-editor-actions button:hover {
+  border-color: var(--accent);
+}
+
+.admin-editor-actions button:disabled {
+  color: var(--text-faint);
+  cursor: default;
+}
+
+.admin-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-fields input,
+.admin-fields textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 9px 12px;
+  resize: vertical;
+}
+
+.admin-fields input:focus,
+.admin-fields textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.admin-fields textarea {
+  min-height: 70px;
+}
+
+.admin-mdx-editor {
+  --font: var(--sans);
+  --baseBg: var(--bg-subtle);
+  --basePageBg: var(--bg-subtle);
+  --baseBgSubtle: var(--bg-subtle);
+  --baseBgHover: var(--bg-side);
+  --baseBgActive: var(--bg-side);
+  --baseText: var(--text);
+  --baseBase: var(--text);
+  --baseBorder: var(--border);
+  --baseBorderHover: var(--accent);
+  --accentBg: var(--bg-subtle);
+  --accentBgSubtle: var(--bg-subtle);
+  --accentBgHover: var(--bg-side);
+  --accentBgActive: var(--bg-side);
+  --accentText: var(--accent);
+  --accentBase: var(--accent);
+  --accentBorder: var(--accent);
+  --accentSolid: var(--rust);
+  --accentSolidHover: var(--rust);
+  --accentTextContrast: #fff;
+  --radius: 5px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-mdx-editor .dark-theme {
+  --font: var(--sans);
+  --baseBg: var(--bg-subtle);
+  --basePageBg: var(--bg-subtle);
+  --baseBgSubtle: var(--bg-subtle);
+  --baseBgHover: var(--bg-side);
+  --baseBgActive: var(--bg-side);
+  --baseText: var(--text);
+  --baseBase: var(--text);
+  --baseBorder: var(--border);
+  --baseBorderHover: var(--accent);
+  --accentBg: var(--bg-subtle);
+  --accentBgSubtle: var(--bg-subtle);
+  --accentBgHover: var(--bg-side);
+  --accentBgActive: var(--bg-side);
+  --accentText: var(--accent);
+  --accentBase: var(--accent);
+  --accentBorder: var(--accent);
+  --accentSolid: var(--rust);
+  --accentSolidHover: var(--rust);
+  --accentTextContrast: #fff;
+}
+
+.admin-mdx-content {
+  min-height: 400px;
+  font-family: var(--sans);
+}
+
+.admin-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-links-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.admin-link-row {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-link-row input {
+  width: auto;
+  flex: 1;
+}
+
+.admin-link-row button {
+  flex: none;
+  font-size: 1rem;
+  color: var(--text-faint);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  width: 34px;
+  cursor: pointer;
+}
+
+.admin-link-add {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.admin-preview {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
 /* 404 */
 .not-found {
   padding: 48px 0;

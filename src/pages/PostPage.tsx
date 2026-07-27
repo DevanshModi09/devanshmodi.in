@@ -1,13 +1,10 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
 import { Link, useParams } from 'react-router-dom';
-import remarkGfm from 'remark-gfm';
 import { site } from '../config';
 import { getPost } from '../data/posts';
 import { formatDate } from '../utils/date';
 import Tag from '../components/Tag';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 import NotFound from './NotFound';
 
 export default function PostPage() {
@@ -42,30 +39,7 @@ export default function PostPage() {
       </header>
 
       <div className="article-body">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code(props) {
-              const { children, className } = props;
-
-              const match = /language-(\w+)/.exec(className || '');
-
-              return match ? (
-                <SyntaxHighlighter
-                  style={atomDark}
-                  language={match[1]}
-                  PreTag="div"
-                >
-                  {String(children).replace(/\n$/, '')}
-                </SyntaxHighlighter>
-              ) : (
-                <code className={className}>{children}</code>
-              );
-            },
-          }}
-        >
-          {post.body}
-        </ReactMarkdown>
+        <MarkdownRenderer body={post.body} />
       </div>
 
       {post.links.length > 0 && (
