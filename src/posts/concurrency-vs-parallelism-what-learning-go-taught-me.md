@@ -13,7 +13,7 @@ Back when I was learning JavaScript, one of the first things I picked up was tha
 
 See, at the time, concurrency and parallelism were the exact same thing to me. Just two words for "doing multiple things at once." So if JavaScript only had one thread, it seemed obvious that it couldn't be doing multiple things at once — which meant, in my mind, it just wasn't concurrent. Simple logic, except it was completely wrong.
 
-Turns out JavaScript is actually really concurrent. It just doesn't get there through parallelism. And figuring out why those are two different things is basically what changed how I think about all of this — which is what this post is about.
+Turns out JavaScript is actually highly concurrent. It just doesn't get there through parallelism. And figuring out why those are two different things is basically what changed how I think about all of this — which is what this post is about.
 
 # Concurrency vs Parallelism, Explained Simply
 
@@ -21,7 +21,7 @@ Assume one guy in a kitchen, and he's only got one hand to work with (1 core). H
 
 Now assume the same guy, except this time he's got two hands (2 cores). He's cooking with one hand and filling the water bottle with the other, at the same exact time. That's parallelism — two cores, two things actually happening simultaneously.
 
-So really, it's not about how many things you're juggling. It's about how many hands you've got doing the juggling. One hand switching super fast between tasks? Concurrency (1 core). Multiple hands working at the exact same time? That's parallelism (2 cores).
+So really, it's not about how many tasks exist—it's about how many hands can actively work on them at the same time. One hand switching super fast between tasks? Concurrency (1 core). Multiple hands working at the exact same time? That's parallelism (2 cores).
 
 ## A few points to remember:
 
@@ -36,7 +36,7 @@ So really, it's not about how many things you're juggling. It's about how many h
 
 So if JavaScript only has one core (one hand), how does it manage to juggle so many things at once — API calls, timers, user clicks — without freezing up? This is where the **event loop** comes in.
 
-Here's the simple version: JavaScript doesn't actually do slow things itself. When it hits something that takes time — like fetching data from a server, reading a file, or waiting on a `setTimeout` — it doesn't sit there waiting. It hands that task off to the browser (or to Node's underlying system) and immediately moves on to the next line of code. When that slow task finally finishes, its result gets queued up, and the event loop picks it up and runs it once the main thread is free.
+Here's the simple version: JavaScript doesn't block while waiting for slow asynchronous operations. When it hits something that takes time — like fetching data from a server, reading a file, or waiting on a `setTimeout` — it doesn't sit there waiting. It hands that task off to the browser (or to Node's underlying system) and immediately moves on to the next line of code. When that slow task finally finishes, its result gets queued up, and the event loop picks it up and runs it once the main thread is free.
 
 ## A simple example:
 
@@ -141,7 +141,7 @@ GOMAXPROCS=1 (concurrency only, no parallelism): 1.519608958s
 GOMAXPROCS=8 (real parallelism, if cores > 1): 556.020458ms
 ```
 
-You can see that even with just 1 core, all three goroutines are still running *concurrently* — the checkpoints from goroutine 0, 1, and 2 are interleaved, not sequential. But once we bump it up to the max number of cores, the whole thing runs roughly 3x faster (i assume your cpu has more then 3 cores) , because each goroutine now gets its own core to run on at the exact same time. That's the shift from concurrency to actual parallelism — same code, same goroutines, just more hands doing the work.
+You can see that even with just one core, all three goroutines are still making progress *concurrently—the checkpoints* from goroutine 0, 1, and 2 are interleaved rather than appearing one after another. Once we let Go use all available CPU cores, the program finishes significantly faster on most modern machines because the scheduler can execute multiple goroutines simultaneously across different cores. That's the shift from concurrency to true parallelism: the code is exactly the same, but now there's enough hardware for multiple goroutines to execute at the same time.
 
 
 
