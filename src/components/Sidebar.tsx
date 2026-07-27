@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { site } from '../config';
+import SubscribeForm from './SubscribeForm';
 import ThemeToggle from './ThemeToggle';
 
 export default function Sidebar() {
@@ -53,6 +54,7 @@ export default function Sidebar() {
         </div>
 
         <div className="sidebar-bottom">
+          <SubscribeForm compact />
           <ThemeToggle />
         </div>
       </div>

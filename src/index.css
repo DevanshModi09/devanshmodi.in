@@ -172,6 +172,13 @@ a:hover {
   padding: 4px 0;
 }
 
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
 /* Pages */
 .page-title {
   font-size: 1.45rem;
@@ -623,6 +630,106 @@ a:hover {
 .article-body td {
   padding: 9px 12px;
   border-bottom: 1px solid var(--border);
+}
+
+/* Subscribe form */
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subscribe-form-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.subscribe-form-row {
+  display: flex;
+  gap: 8px;
+}
+
+.subscribe-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+  color: var(--text-faint);
+}
+
+.subscribe-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.subscribe-form button {
+  flex: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  border-color: var(--accent);
+}
+
+.subscribe-form button:disabled {
+  color: var(--text-faint);
+  cursor: default;
+}
+
+.subscribe-form-error {
+  font-size: 0.8rem;
+  color: var(--rust);
+}
+
+.subscribe-form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.subscribe-form-compact {
+  width: 100%;
+}
+
+.subscribe-form-compact .subscribe-form-row {
+  gap: 6px;
+}
+
+.subscribe-form-compact input[type="email"] {
+  font-size: 0.82rem;
+  padding: 5px 8px;
+}
+
+.subscribe-form-compact button {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+.article-subscribe {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  max-width: 360px;
 }
 
 /* 404 */

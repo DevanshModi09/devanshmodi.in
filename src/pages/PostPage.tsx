@@ -8,6 +8,7 @@ import { site } from '../config';
 import { getPost } from '../data/posts';
 import { formatDate } from '../utils/date';
 import Tag from '../components/Tag';
+import SubscribeForm from '../components/SubscribeForm';
 import NotFound from './NotFound';
 
 export default function PostPage() {
@@ -78,6 +79,10 @@ export default function PostPage() {
           ))}
         </section>
       )}
+
+      <section className="article-subscribe">
+        <SubscribeForm />
+      </section>
 
       <footer className="article-footer">
         <Link to="/" className="back-link">
