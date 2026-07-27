@@ -25,12 +25,9 @@ So really, it's not about how many tasks exist—it's about how many hands can a
 
 ## A few points to remember:
 
-* **Concurrency is about structure, parallelism is about execution.** Concurrency is how you organize tasks so multiple things can make progress. Parallelism is actually running multiple things at the same instant.
-* **Concurrency can happen on a single core. Parallelism cannot.** This is the big one people miss. You don't need multiple hands to be concurrent — one hand switching fast enough between tasks is still concurrency. Parallelism, on the other hand, requires more than one hand (more than one core) working at the same time.
-* **Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.** "Dealing with" doesn't mean simultaneous. "Doing" does.
-* **A single core can absolutely be concurrent — it just can't be parallel.** It can rapidly switch between tasks (like JavaScript's event loop does), giving the illusion that many things are happening together, without ever truly running two tasks at the exact same instant.
-* **Parallelism needs multiple cores; concurrency just needs good task-switching.** That's why JavaScript, running on a single core, can juggle hundreds of tasks concurrently but can never run two of them in true parallel — no matter how fast the switching is.
-* **You can have concurrency without parallelism, but not the other way around.** If two things are genuinely running in parallel, they're automatically concurrent too (since they're both making progress at once). But something can be concurrent without ever being parallel — like a single-core event loop.
+* **Concurrency is about structure (how you organize tasks); parallelism is about execution (running them at the same instant)**
+* **A single core can be concurrent but never parallel — parallelism requires multiple cores, full stop**
+* **You can have concurrency without parallelism, but not the reverse — if things run in parallel, they're automatically concurrent too**
 
 # How JavaScript Achieves Concurrency Without Parallelism
 
@@ -60,6 +57,7 @@ That's the whole trick: JavaScript achieves concurrency by never blocking on slo
 
 # An example of Go Achieving Concurrency, With and Without Parallelism
 
+JavaScript shows us concurrency without parallelism. But what does a language look like when it can do both? Let's find out — with Go.
 Let's actually prove it with code. We'll run the same CPU-heavy work as 3 goroutines, once with `GOMAXPROCS` set to 1 (forcing everything onto a single core), and once with it set to the max (letting Go use all available cores), and time both.
 
 ## The setup :&#x20;
