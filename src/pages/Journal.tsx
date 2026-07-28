@@ -101,7 +101,7 @@ export default function Journal() {
     <section className="page">
       <h1 className="page-title">Daily Journal</h1>
       <div className="page-body">
-        <p>Documenting the daily grind of getting better — one entry at a time.</p>
+        <p>Documenting the daily grind of getting better.</p>
       </div>
 
       {entriesError && <p className="admin-error">{entriesError}</p>}
