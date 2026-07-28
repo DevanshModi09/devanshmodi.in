@@ -4,7 +4,7 @@ import { posts } from '../data/posts';
 export default function Home() {
   return (
     <section className="page">
-      <h1 className="page-title">Writing</h1>
+      <h1 className="page-title">Blogs</h1>
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />
       ))}

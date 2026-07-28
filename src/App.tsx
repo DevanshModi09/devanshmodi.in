@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import { site } from './config';
 import About from './pages/About';
 import Home from './pages/Home';
+import Journal from './pages/Journal';
 import NotFound from './pages/NotFound';
 import PostPage from './pages/PostPage';
 import Projects from './pages/Projects';
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/posts/:slug" element={<PostPage />} />
+            <Route path="/journal" element={<Journal />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route

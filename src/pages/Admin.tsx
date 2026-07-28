@@ -55,6 +55,7 @@ export default function Admin() {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState<string | null>(null);
 
+  const [target, setTarget] = useState<'blog' | 'journal'>('blog');
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [excerpt, setExcerpt] = useState('');
@@ -139,6 +140,7 @@ export default function Admin() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        target,
         title,
         subtitle,
         excerpt,
@@ -187,8 +189,16 @@ export default function Admin() {
   return (
     <div className="admin-editor">
       <header className="admin-editor-header">
-        <h1>New post</h1>
+        <h1>New {target === 'journal' ? 'daily journal entry' : 'post'}</h1>
         <div className="admin-editor-actions">
+          <select
+            value={target}
+            onChange={(e) => setTarget(e.target.value as 'blog' | 'journal')}
+            disabled={publishDisabled}
+          >
+            <option value="blog">Blog post</option>
+            <option value="journal">Daily journal entry (private)</option>
+          </select>
           <button type="button" onClick={() => setView(view === 'edit' ? 'preview' : 'edit')}>
             {view === 'edit' ? 'Preview' : 'Edit'}
           </button>
@@ -204,24 +214,33 @@ export default function Admin() {
       {publishState === 'error' && <p className="admin-error">{publishError}</p>}
       {publishState === 'done' && (
         <p className="admin-success">
-          Published{publishedSlug ? ` — /posts/${publishedSlug}` : ''} — deploying now, live in
-          about a minute.
+          {target === 'journal'
+            ? 'Published to the private journal repo — live on /journal immediately, no redeploy needed.'
+            : `Published${publishedSlug ? ` — /posts/${publishedSlug}` : ''} — deploying now, live in about a minute.`}
         </p>
       )}
 
       {view === 'edit' ? (
         <div className="admin-fields">
-          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
           <input
-            value={subtitle}
-            onChange={(e) => setSubtitle(e.target.value)}
-            placeholder="Subtitle"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder={target === 'journal' ? 'Title (optional)' : 'Title'}
           />
-          <textarea
-            value={excerpt}
-            onChange={(e) => setExcerpt(e.target.value)}
-            placeholder="Excerpt"
-          />
+          {target === 'blog' && (
+            <>
+              <input
+                value={subtitle}
+                onChange={(e) => setSubtitle(e.target.value)}
+                placeholder="Subtitle"
+              />
+              <textarea
+                value={excerpt}
+                onChange={(e) => setExcerpt(e.target.value)}
+                placeholder="Excerpt"
+              />
+            </>
+          )}
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
           <input
             value={tags}
@@ -229,29 +248,31 @@ export default function Admin() {
             placeholder="Tags, comma separated"
           />
 
-          <div className="admin-links">
-            <span className="admin-links-label">Links</span>
-            {links.map((link, i) => (
-              <div className="admin-link-row" key={i}>
-                <input
-                  value={link.label}
-                  onChange={(e) => updateLink(i, 'label', e.target.value)}
-                  placeholder="Label"
-                />
-                <input
-                  value={link.url}
-                  onChange={(e) => updateLink(i, 'url', e.target.value)}
-                  placeholder="URL"
-                />
-                <button type="button" onClick={() => removeLink(i)} aria-label="Remove link">
-                  ×
-                </button>
-              </div>
-            ))}
-            <button type="button" onClick={addLink} className="admin-link-add">
-              + Add link
-            </button>
-          </div>
+          {target === 'blog' && (
+            <div className="admin-links">
+              <span className="admin-links-label">Links</span>
+              {links.map((link, i) => (
+                <div className="admin-link-row" key={i}>
+                  <input
+                    value={link.label}
+                    onChange={(e) => updateLink(i, 'label', e.target.value)}
+                    placeholder="Label"
+                  />
+                  <input
+                    value={link.url}
+                    onChange={(e) => updateLink(i, 'url', e.target.value)}
+                    placeholder="URL"
+                  />
+                  <button type="button" onClick={() => removeLink(i)} aria-label="Remove link">
+                    ×
+                  </button>
+                </div>
+              ))}
+              <button type="button" onClick={addLink} className="admin-link-add">
+                + Add link
+              </button>
+            </div>
+          )}
 
           <div className="admin-mdx-editor">
             <MDXEditor

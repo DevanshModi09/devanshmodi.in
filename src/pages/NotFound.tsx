@@ -6,7 +6,7 @@ export default function NotFound() {
       <h1>404</h1>
       <p>That page doesn't exist (yet).</p>
       <Link to="/" className="back-link">
-        ← Back to writing
+        ← Back to blogs
       </Link>
     </div>
   );

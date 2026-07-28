@@ -26,10 +26,11 @@ export default function Sidebar() {
           <p className="sidebar-bio">{site.author.bio}</p>
 
           <nav className="sidebar-nav">
-            <NavLink to="/" end>
-              Writing
-            </NavLink>
             <NavLink to="/about">About</NavLink>
+            <NavLink to="/" end>
+              Blogs
+            </NavLink>
+            <NavLink to="/journal">Daily Journal</NavLink>
             <NavLink to="/projects">Projects</NavLink>
           </nav>
 

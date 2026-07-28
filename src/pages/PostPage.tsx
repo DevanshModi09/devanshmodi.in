@@ -55,7 +55,7 @@ export default function PostPage() {
 
       <footer className="article-footer">
         <Link to="/" className="back-link">
-          ← Back to writing
+          ← Back to blogs
         </Link>
       </footer>
     </article>
