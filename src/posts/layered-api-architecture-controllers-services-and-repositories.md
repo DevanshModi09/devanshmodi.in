@@ -1,5 +1,5 @@
 ---
-title: Layered API Architecture: Controllers, Services, and Repositories.
+title: Layered API Architecture: Controllers, Services, and Repositories
 subtitle: A beginner-friendly guide to separating logic in your backend
 excerpt: A simple introduction to layered API architecture and how controllers, services, and repositories help keep backend code clean and organized.
 date: 2026-08-04
