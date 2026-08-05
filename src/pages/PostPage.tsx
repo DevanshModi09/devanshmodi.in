@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { site } from '../config';
-import { getPost } from '../data/posts';
-import { formatDate } from '../utils/date';
-import Tag from '../components/Tag';
-import MarkdownRenderer from '../components/MarkdownRenderer';
-import NotFound from './NotFound';
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { site } from "../config";
+import { getPost } from "../data/posts";
+import { formatDate } from "../utils/date";
+import Tag from "../components/Tag";
+import MarkdownRenderer from "../components/MarkdownRenderer";
+import NotFound from "./NotFound";
 
 export default function PostPage() {
   const { slug } = useParams<{ slug: string }>();
